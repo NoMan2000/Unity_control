@@ -38,7 +38,9 @@ public class Utilities : MonoBehaviour {
 	public static int shortRangeSoul = 1;
 	public static int longRangeSoul = 2;
 	public static int calumitySoul = 3;
-	public static float attackTime;
+	public static float attackTimeShort;
+	public static float attackTimeLong;
+	public static float attackTimeCalumity;
 	public static bool isShortRangeAttacking = false;
 	public static bool isLongRangeAttacking = false;
 	public static bool isCalumityAttacking = false;

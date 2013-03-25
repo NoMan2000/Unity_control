@@ -6,6 +6,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 	float distance;
 	public GameObject target;
 	public GameObject self;
+	public GameObject attackEffect;
 	public float lookAtDistance;
 	public float chargeRange;
 	public float moveSpeed;
@@ -67,7 +68,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 	}
 	
 	void attack() {
-		Utilities.attackTime = Time.time;
+		Utilities.attackTimeShort = Time.time;
 		Utilities.isShortRangeAttacking = true;
 	}
 }

@@ -19,12 +19,20 @@ public class PlayerParticle : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
+		shortRangeParticleSystem.transform.position = player.transform.position;
 		if (Utilities.isShortRangeAttacking == true) {
-			shortRangeParticleSystem.transform.position = player.transform.position;
 			shortRangeParticleSystem.particleSystem.enableEmission = true;
-			if ((int)Time.time - (int)Utilities.attackTime > 3) {
+			if ((int)Time.time - (int)Utilities.attackTimeShort > 3) {
 				Utilities.isShortRangeAttacking = false;
 				shortRangeParticleSystem.particleSystem.enableEmission = false;
+			}
+		}
+		
+		if (Utilities.isLongRangeAttacking == true) {
+			longRangeParticleSystem.particleSystem.enableEmission = true;
+			if ((int)Time.time - (int)Utilities.attackTimeLong > 1) {
+				Utilities.isLongRangeAttacking = false;
+				longRangeParticleSystem.particleSystem.enableEmission = false;
 			}
 		}
 	}
