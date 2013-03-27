@@ -19,7 +19,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 		if (Utilities.state == Utilities.stateMainGame) {
 			lookAtDistance = 35.0f;
 			chargeRange = 35.0f;
-			closeRange = 3.0f;
+			closeRange = 2.0f;
 			moveSpeed = 5.0f;
 			damping = 6.0f;
 			isItAttacking = false;
@@ -48,6 +48,13 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 			}
 			if (isItAttacking) {
 				renderer.material.color = Color.red;
+			}
+			
+			// this is what will kill them if player casts spell
+			if (distance < Utilities.defensiveAttackDistance) {
+				if (Utilities.defensiveSpell == true) {
+					Destroy(self);
+				}
 			}
 		}
 	}

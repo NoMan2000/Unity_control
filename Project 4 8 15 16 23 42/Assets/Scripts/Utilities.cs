@@ -12,6 +12,7 @@ public class Utilities : MonoBehaviour {
 	// Add all the variables in this utilities.cs file so that everyone can refer to them easily
 	// NOTE: Don't forget to make them "public" and "static".
 	
+	public static int none = 0;
 	
 	public static int summer = 1;
 	public static int fall = 2;
@@ -45,6 +46,12 @@ public class Utilities : MonoBehaviour {
 	public static bool isLongRangeAttacking = false;
 	public static bool isCalumityAttacking = false;
 	
+	
+	// player attack variables
+	public static bool defensiveSpell = false;
+	public static bool offensiveSpell = false;
+	public static bool calumitySpell = false;
+	public static float defensiveAttackDistance = 5;
 	
 	// Use this for initialization
 	void Start () {

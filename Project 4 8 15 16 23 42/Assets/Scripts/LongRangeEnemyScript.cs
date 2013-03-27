@@ -45,6 +45,13 @@ public class LongRangeEnemyScript : MonoBehaviour {
 			if (isItAttacking) {
 				renderer.material.color = Color.red;
 			}
+			
+			// this is what will kill them if player casts spell
+			if (distance < Utilities.defensiveAttackDistance) {
+				if (Utilities.defensiveSpell == true) {
+					Destroy(self);
+				}
+			}
 		}
 	}
 	
