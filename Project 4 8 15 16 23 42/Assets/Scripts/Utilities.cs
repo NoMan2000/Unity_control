@@ -53,6 +53,9 @@ public class Utilities : MonoBehaviour {
 	public static bool calumitySpell = false;
 	public static float defensiveAttackDistance = 5;
 	
+	// player attributes
+	public static float darkSoulBar = 100;
+	
 	// Use this for initialization
 	void Start () {
 		state = stateMainGame;

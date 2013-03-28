@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class attackOnShortRangeSouls : MonoBehaviour {
+public class AttackOnShortRangeSouls : MonoBehaviour {
 	
 	float distance;
 	public GameObject target;
@@ -21,7 +21,9 @@ public class attackOnShortRangeSouls : MonoBehaviour {
 				// this is what will kill them if player casts spell
 				// will depend on the season and the soul effected also the spell casted
 				if (distance < Utilities.defensiveAttackDistance) {
-					Destroy(self);
+					self.GetComponent<ShortRangeEnemyScript>().isActive = false;
+					self.renderer.material.color = Color.blue;
+					//Destroy(self);
 				}
 			}
 		}

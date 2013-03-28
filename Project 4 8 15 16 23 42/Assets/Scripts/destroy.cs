@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class destroy : MonoBehaviour
+public class Destroy : MonoBehaviour
 {
 
     public void Main()

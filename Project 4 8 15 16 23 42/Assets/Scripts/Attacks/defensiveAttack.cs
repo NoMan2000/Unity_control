@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class defensiveAttack : MonoBehaviour {
+public class DefensiveAttack : MonoBehaviour {
 	
 	public GameObject player;
 	public GameObject spell;
