@@ -17,7 +17,7 @@ public class DestroySoul : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider collider) {
 		GameObject soulTemp = GameObject.Find(collider.gameObject.name);
-		if (soulTemp.GetComponent<ShortRangeEnemyScript>()) {
+		if (soulTemp.CompareTag("shortRangeSoul") && soulTemp.GetComponent<ShortRangeEnemyScript>()) {
 			if (!collider.gameObject.Equals(player)) {
 				if (soulTemp.GetComponent<ShortRangeEnemyScript>().isActive) {
 					soulTemp.GetComponent<ShortRangeEnemyScript>().attack();

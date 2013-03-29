@@ -13,7 +13,7 @@ public class DefensiveAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.LeftControl)) {
+		if (Input.GetButton("defensive")) {
 			if (Utilities.defensiveSpell == false) {
 				startTime = Time.time;
 			}

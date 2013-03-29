@@ -74,7 +74,6 @@ public class LongRangeEnemyScript : MonoBehaviour {
 			fireCycle = Time.time + fireDelay;
 			tempPos = target.transform.position;
 			attackEffect.transform.position = new Vector3(Random.Range(tempPos.x - 2, tempPos.x + 2), tempPos.y, Random.Range(tempPos.z - 2, tempPos.z + 2));	
-			print (target.transform.position + " : " + attackEffect.transform.position + " : " + Vector3.Distance(attackEffect.transform.position, target.transform.position) );
 		}
 		
 		if (Vector3.Distance(attackEffect.transform.position, target.transform.position) <= 1) {

@@ -15,7 +15,6 @@ public class AttackOnShortRangeSouls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Utilities.state == Utilities.stateMainGame) {
-
 			if (Utilities.defensiveSpell == true) {
 				distance = Vector3.Distance(target.transform.position, transform.position);
 				// this is what will kill them if player casts spell
