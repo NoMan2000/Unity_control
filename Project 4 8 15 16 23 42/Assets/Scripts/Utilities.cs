@@ -19,6 +19,10 @@ public class Utilities : MonoBehaviour {
 	public static int winter = 3;
 	public static int spring = 4;
 	public static int currentSeason;
+	public static int changedSeason;
+	public static bool seasonChanged = false;
+	public static float seasonCounter = 0.0f;
+	public static float seasonCounterMax = 10.0f;
 	
 	
 	// please in every script you write for the main game

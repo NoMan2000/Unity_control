@@ -15,7 +15,7 @@ public class Collider1WeatherScript : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.Equals(player)) {
-			Utilities.currentSeason = Utilities.spring;
+			Utilities.currentSeason = Utilities.fall;
 		}
 	}
 }
