@@ -34,11 +34,15 @@ public class OffensiveAttack : MonoBehaviour {
 		// check for input "offensive"
 		if (Input.GetButton("offensive")) {
 			Vector3 forward = player.transform.TransformDirection(Vector3.forward);
-			if (Physics.Raycast(transform.position, forward, out hit, 500.0f, 1)) {
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit, 500.0f)) {
+			//if (Physics.Raycast(transform.position, forward, out hit, 500.0f, 1)) {
+				print(hit.collider.name);
 				Utilities.offensiveSpell = true;
 				GameObject newOffensiveEffect;
 				newOffensiveEffect = Instantiate(spell, hit.point,  new Quaternion(0f,0f,0f,0f)) as GameObject;
 				newOffensiveEffect.particleSystem.enableEmission = true;
+				
 				if (hit.collider.CompareTag("shortRangeSoul")) {
 					Utilities.offensiveSpell = true;
 					GameObject.Find (hit.collider.name).GetComponent<ShortRangeEnemyScript>().isActive = false;
@@ -53,6 +57,10 @@ public class OffensiveAttack : MonoBehaviour {
 					print ("calumity");	
 				}
 				
+				if (hit.collider.CompareTag("freeze")) {
+					Utilities.isWaterFrozen = true;
+					Utilities.freezeTimer = Utilities.maxFreezeTimer;
+				}
 				newOffensiveEffect.particleSystem.startSize++;
 				Destroy(newOffensiveEffect, 1);
 				Utilities.offensiveSpell = false;

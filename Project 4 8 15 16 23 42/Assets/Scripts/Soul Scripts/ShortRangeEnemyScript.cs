@@ -46,8 +46,8 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 					charge();
 				}
 				if (distance < closeRange) {
-					//attack ();
-					//destroySelf();
+					attack ();
+					destroySelf();
 				}
 				if (isItAttacking) {
 					renderer.material.color = Color.red;
@@ -68,7 +68,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 	}
 	
 	void destroySelf() {
-		DestroyObject(self);
+		DestroyObject(GameObject.Find(name));
 	}
 	
 	public void attack() {

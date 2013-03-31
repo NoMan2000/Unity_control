@@ -22,7 +22,7 @@ public class Utilities : MonoBehaviour {
 	public static int changedSeason;
 	public static bool seasonChanged = false;
 	public static float seasonCounter = 0.0f;
-	public static float seasonCounterMax = 10.0f;
+	public static float seasonCounterMax = 20.0f;
 	
 	
 	// please in every script you write for the main game
@@ -59,6 +59,11 @@ public class Utilities : MonoBehaviour {
 	
 	// player attributes
 	public static float darkSoulBar = 100;
+	
+	// world attributes
+	public static bool isWaterFrozen = false;
+	public static float freezeTimer = 0.0f;
+	public static float maxFreezeTimer = seasonCounterMax - (10 * seasonCounterMax / 100);
 	
 	// Use this for initialization
 	void Start () {

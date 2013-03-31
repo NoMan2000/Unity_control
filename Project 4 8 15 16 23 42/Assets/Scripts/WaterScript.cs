@@ -12,7 +12,16 @@ public class WaterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!Utilities.isWaterFrozen) {
+			GetComponent<MeshCollider>().isTrigger = true;
+		}
+		if (Utilities.isWaterFrozen) {
+			GetComponent<MeshCollider>().isTrigger = false;
+			Utilities.freezeTimer -= Time.deltaTime;
+			if (Utilities.freezeTimer < 0) {
+				Utilities.isWaterFrozen = false;
+			}
+		}
 	}
 	
 	IEnumerator OnTriggerEnter(Collider collider) {
