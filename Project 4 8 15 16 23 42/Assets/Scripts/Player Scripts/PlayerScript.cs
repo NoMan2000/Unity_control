@@ -29,9 +29,9 @@ public class PlayerScript : MonoBehaviour {
 				playerController.runSpeed = 0.2f;
 				playerController.trotSpeed = 0.2f;
 				if ((int)Time.time - (int)Utilities.attackTimeShort > 3) {
-					playerController.walkSpeed = 5.0f;
-					playerController.runSpeed = 10.0f;
-					playerController.trotSpeed = 6.0f;
+					playerController.walkSpeed = 3.0f;
+					playerController.runSpeed = 6.0f;
+					playerController.trotSpeed = 5.0f;
 					Utilities.isShortRangeAttacking = false;
 					shortRangeParticleSystem.particleSystem.enableEmission = false;
 				}
@@ -45,13 +45,15 @@ public class PlayerScript : MonoBehaviour {
 					playerController.trotSpeed = 0.2f;
 				}
 				if ((int)Time.time - (int)Utilities.attackTimeLong > 5) {
-					playerController.walkSpeed = 5.0f;
-					playerController.runSpeed = 10.0f;
-					playerController.trotSpeed = 6.0f;	
+					playerController.walkSpeed = 3.0f;
+					playerController.runSpeed = 6.0f;
+					playerController.trotSpeed = 5.0f;	
 					Utilities.isLongRangeAttacking = false;
 					longRangeParticleSystem.particleSystem.enableEmission = false;
 				}
 			}
 		}
 	}
+	
+	
 }

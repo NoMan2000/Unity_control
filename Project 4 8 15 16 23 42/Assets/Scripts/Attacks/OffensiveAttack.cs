@@ -37,30 +37,70 @@ public class OffensiveAttack : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 500.0f)) {
 			//if (Physics.Raycast(transform.position, forward, out hit, 500.0f, 1)) {
-				print(hit.collider.name);
 				Utilities.offensiveSpell = true;
 				GameObject newOffensiveEffect;
 				newOffensiveEffect = Instantiate(spell, hit.point,  new Quaternion(0f,0f,0f,0f)) as GameObject;
 				newOffensiveEffect.particleSystem.enableEmission = true;
 				
 				if (hit.collider.CompareTag("shortRangeSoul")) {
-					Utilities.offensiveSpell = true;
-					GameObject.Find (hit.collider.name).GetComponent<ShortRangeEnemyScript>().isActive = false;
-					GameObject.Find (hit.collider.name).renderer.material.color = Color.blue;
-				}
-				if (hit.collider.CompareTag("longRangeSoul")) {
-					Utilities.offensiveSpell = true;
-					GameObject.Find (hit.collider.name).GetComponent<LongRangeEnemyScript>().isActive = false;
-					GameObject.Find (hit.collider.name).renderer.material.color = Color.blue;
-				}
-				if (hit.collider.CompareTag("calumitySoul")) {
-					print ("calumity");	
+					if (Utilities.currentSeason == Utilities.winter) {
+						Utilities.offensiveSpell = true;
+						GameObject.Find (hit.collider.name).GetComponent<ShortRangeEnemyScript>().isActive = false;
+						GameObject.Find (hit.collider.name).renderer.material.color = Color.blue;
+					}
+					else if (Utilities.currentSeason == Utilities.spring) {
+					}
+					else if (Utilities.currentSeason == Utilities.summer) {
+					}
+					else if (Utilities.currentSeason == Utilities.fall) {
+					}
 				}
 				
-				if (hit.collider.CompareTag("freeze")) {
-					Utilities.isWaterFrozen = true;
-					Utilities.freezeTimer = Utilities.maxFreezeTimer;
+				
+				if (hit.collider.CompareTag("longRangeSoul")) {
+					if (Utilities.currentSeason == Utilities.winter) {
+						Utilities.offensiveSpell = true;
+						GameObject.Find (hit.collider.name).GetComponent<LongRangeEnemyScript>().isActive = false;
+						GameObject.Find (hit.collider.name).renderer.material.color = Color.blue;
+					}
+					else if (Utilities.currentSeason == Utilities.spring) {
+					}
+					else if (Utilities.currentSeason == Utilities.summer) {
+					}
+					else if (Utilities.currentSeason == Utilities.fall) {
+					}
+
 				}
+				
+				
+				if (hit.collider.CompareTag("calumitySoul")) {
+					if (Utilities.currentSeason == Utilities.winter) {
+						print ("calumity");	
+					}
+					else if (Utilities.currentSeason == Utilities.spring) {
+					}
+					else if (Utilities.currentSeason == Utilities.summer) {
+					}
+					else if (Utilities.currentSeason == Utilities.fall) {
+					}
+
+				}
+				
+				
+				if (hit.collider.CompareTag("freeze")) {
+					if (Utilities.currentSeason == Utilities.winter) {
+						Utilities.isWaterFrozen = true;
+						Utilities.freezeTimer = Utilities.maxFreezeTimer;
+					}
+					else if (Utilities.currentSeason == Utilities.spring) {
+					}
+					else if (Utilities.currentSeason == Utilities.summer) {
+					}
+					else if (Utilities.currentSeason == Utilities.fall) {
+					}
+				}
+				
+				
 				newOffensiveEffect.particleSystem.startSize++;
 				Destroy(newOffensiveEffect, 1);
 				Utilities.offensiveSpell = false;

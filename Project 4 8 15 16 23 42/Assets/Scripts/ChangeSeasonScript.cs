@@ -57,7 +57,6 @@ public class ChangeSeasonScript : MonoBehaviour {
 			
 			if (Utilities.seasonChanged) {
 				Utilities.seasonCounter -= Time.deltaTime;
-				print(Utilities.seasonCounter);
 				if (Utilities.seasonCounter < 0) {
 					Utilities.seasonChanged = false;
 					Utilities.currentSeason = Utilities.changedSeason;

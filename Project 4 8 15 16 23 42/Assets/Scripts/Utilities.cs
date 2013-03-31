@@ -63,7 +63,7 @@ public class Utilities : MonoBehaviour {
 	// world attributes
 	public static bool isWaterFrozen = false;
 	public static float freezeTimer = 0.0f;
-	public static float maxFreezeTimer = seasonCounterMax - (10 * seasonCounterMax / 100);
+	public static float maxFreezeTimer = seasonCounterMax;
 	
 	// Use this for initialization
 	void Start () {
