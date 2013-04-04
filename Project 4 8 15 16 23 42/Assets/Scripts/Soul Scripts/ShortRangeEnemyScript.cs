@@ -40,6 +40,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 					lookAt();
 				}
 				if (distance > lookAtDistance) {
+					isItAttacking = false;
 					renderer.material.color = Color.green;
 				}
 				if (distance < chargeRange) {
@@ -72,7 +73,7 @@ public class ShortRangeEnemyScript : MonoBehaviour {
 	}
 	
 	public void attack() {
-		Utilities.darkSoulBar -= Utilities.darkSoulBar * 0.7f / 100f * Utilities.shortRangeSoul;
+		Utilities.saludBar -= Utilities.saludBar * 0.7f / 100f * Utilities.shortRangeSoul;
 		Utilities.attackTimeShort = Time.time;
 		Utilities.isShortRangeAttacking = true;
 	}

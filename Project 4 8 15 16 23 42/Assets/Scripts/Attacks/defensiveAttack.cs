@@ -30,17 +30,21 @@ public class DefensiveAttack : MonoBehaviour {
 		
 		// check for input "defensive"
 		if (Input.GetButton("defensive")) {
-			if (Utilities.defensiveSpell == false) {
-				startTime = Time.time;
+			if (!Utilities.calumitySpell && !Utilities.defensiveSpell && !Utilities.calumitySpell) {
+				startTime = Utilities.defensiveSpellTime;
 			}
 			Utilities.defensiveSpell = true;
 			spell.particleSystem.enableEmission = true;
 		}
 		
 		// Counter for spell
-		if ((int)Time.time - (int)startTime > 1) {
+		if (Utilities.defensiveSpell) {
+			print("defensive : " + startTime);
+			startTime -= Time.deltaTime;
+			if (startTime < 0) {
 				spell.particleSystem.enableEmission = false;
 				Utilities.defensiveSpell = false;
+			}
 		}
 	}
 }

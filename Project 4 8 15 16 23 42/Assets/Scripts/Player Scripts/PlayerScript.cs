@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
 	public GameObject longRangeParticleSystem;
 	public GameObject calumityParticleSystem;
 	public GameObject player;
+	public GameObject water;
 	PlayerController playerController;
 	
 	// Use this for initialization
@@ -22,12 +23,15 @@ public class PlayerScript : MonoBehaviour {
 	
 	void FixedUpdate() {
 		if (Utilities.state == Utilities.stateMainGame) {
+			
 			shortRangeParticleSystem.transform.position = player.transform.position;
+			calumityParticleSystem.transform.position = player.transform.position;
+			
 			if (Utilities.isShortRangeAttacking == true) {
 				shortRangeParticleSystem.particleSystem.enableEmission = true;
-				playerController.walkSpeed = 0.2f;
-				playerController.runSpeed = 0.2f;
-				playerController.trotSpeed = 0.2f;
+				playerController.walkSpeed = 1.5f;
+				playerController.runSpeed = 3.0f;
+				playerController.trotSpeed = 2.5f;
 				if ((int)Time.time - (int)Utilities.attackTimeShort > 3) {
 					playerController.walkSpeed = 3.0f;
 					playerController.runSpeed = 6.0f;
@@ -52,8 +56,14 @@ public class PlayerScript : MonoBehaviour {
 					longRangeParticleSystem.particleSystem.enableEmission = false;
 				}
 			}
+			
+			if (Utilities.isCalumityAttacking) {
+				calumityParticleSystem.particleSystem.enableEmission = true;
+				if ((int)Time.time - (int)Utilities.attackTimeCalumity > 0) {
+					calumityParticleSystem.particleSystem.enableEmission = false;
+				}
+			}
 		}
 	}
-	
 	
 }

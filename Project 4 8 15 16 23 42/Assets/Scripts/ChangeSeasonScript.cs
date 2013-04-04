@@ -7,12 +7,14 @@ public class ChangeSeasonScript : MonoBehaviour {
 	public Material skyboxSpring;
 	public Material skyboxSummer;
 	public Material skyboxFall;
+	public GameObject snow;
 	public GameObject sun;
+	public GameObject player;
 	
 	
 	// Use this for initialization
 	void Start () {
-	
+		snow = GameObject.Find("FX_Snow");
 	}
 	
 	// Update is called once per frame
@@ -61,6 +63,11 @@ public class ChangeSeasonScript : MonoBehaviour {
 					Utilities.seasonChanged = false;
 					Utilities.currentSeason = Utilities.changedSeason;
 				}
+				if (Utilities.seasonCounter < 10) {
+					if (Utilities.currentSeason == Utilities.winter) {
+						snow.particleEmitter.emit = false;
+					}
+				}
 			}
 			
 			
@@ -89,7 +96,10 @@ public class ChangeSeasonScript : MonoBehaviour {
 		setFog();
 		RenderSettings.ambientLight = new Color32(44,44,44,255);
 		sun.light.intensity = 0.53f;
-		
+		snow.transform.position = player.transform.position;
+		snow.particleEmitter.emit = true;
+		snow.particleEmitter.maxSize = Random.Range(0.5f, 2.0f);
+		snow.particleEmitter.worldVelocity = new Vector3(0.0f ,Random.Range(-1.0f, -2.5f), 0.0f);
 	}
 	
 	public void enableSpring() {
@@ -97,6 +107,7 @@ public class ChangeSeasonScript : MonoBehaviour {
 		resetFog();
 		RenderSettings.ambientLight = new Color32(147, 145, 126, 255);
 		sun.light.intensity = 0.65f;
+		snow.particleEmitter.emit = false;
 		
 	}
 	
@@ -105,6 +116,7 @@ public class ChangeSeasonScript : MonoBehaviour {
 		resetFog();
 		RenderSettings.ambientLight = new Color32(211, 211, 211, 255);
 		sun.light.intensity = 0.80f;
+		snow.particleEmitter.emit = false;
 		
 	}
 	
@@ -113,6 +125,7 @@ public class ChangeSeasonScript : MonoBehaviour {
 		resetFog();
 		RenderSettings.ambientLight = new Color32(42, 26, 0, 255);
 		sun.light.intensity = 0.71f;
+		snow.particleEmitter.emit = false;
 		
 	}
 	

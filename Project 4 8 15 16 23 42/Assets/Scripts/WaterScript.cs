@@ -25,6 +25,10 @@ public class WaterScript : MonoBehaviour {
 				}
 			}
 		}
+		if (Utilities.currentSeason != Utilities.winter) {
+			GetComponent<MeshCollider>().isTrigger = true;
+			Utilities.isWaterFrozen = false;
+		}
 		else if (Utilities.currentSeason == Utilities.spring) {
 		}
 		else if (Utilities.currentSeason == Utilities.summer) {
@@ -50,11 +54,12 @@ public class WaterScript : MonoBehaviour {
 			player.GetComponent<PlayerController>().runSpeed = 8.0f;
 		}
 	}
+	/*
 	void OnCollisionExit(Collision collision) {
 		if (collision.gameObject.Equals(player)) {
 			player.GetComponent<PlayerController>().walkSpeed = 3.0f;
 			player.GetComponent<PlayerController>().trotSpeed = 5.0f;
 			player.GetComponent<PlayerController>().runSpeed = 6.0f;
 		}
-	}
+	}*/
 }

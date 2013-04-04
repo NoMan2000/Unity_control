@@ -8,7 +8,7 @@ public class LongRangeEnemyScript : MonoBehaviour {
 	public GameObject self;
 	public GameObject attackEffect;
 	public float lookAtDistance = 55.0f;
-	public float attackRange = 55.0f;
+	public float attackRange = 30.0f;
 	public float damping = 6.0f;
 	bool isItAttacking = false;
 	public float fireCycle  = 5.0f;
@@ -21,13 +21,7 @@ public class LongRangeEnemyScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (Utilities.state == Utilities.stateMainGame) {
-			lookAtDistance = 55.0f;
-			attackRange = 55.0f;
-			damping = 6.0f;
-			fireCycle = fireDelay = 5.0f;
-			isItAttacking = false;
 			self = GameObject.Find(name);
-			isActive = true;
 		}
 	}
 	
@@ -42,6 +36,7 @@ public class LongRangeEnemyScript : MonoBehaviour {
 					lookAt();
 				}
 				if (distance > lookAtDistance) {
+					isItAttacking = false;
 					renderer.material.color = Color.green;
 					fireCycle = Time.time;
 				}
@@ -77,7 +72,6 @@ public class LongRangeEnemyScript : MonoBehaviour {
 		}
 		
 		if (Vector3.Distance(attackEffect.transform.position, target.transform.position) <= 1) {
-			//print ("check");
 			
 		}
 		else if (Vector3.Distance(attackEffect.transform.position, target.transform.position) > 1 ) {

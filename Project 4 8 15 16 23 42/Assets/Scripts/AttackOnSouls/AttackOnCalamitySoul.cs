@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class AttackOnLongRangeSouls : MonoBehaviour {
-
+public class AttackOnCalamitySoul : MonoBehaviour {
+	
 	float distance;
 	public GameObject target;
 	public GameObject self;
+	
 	
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class AttackOnLongRangeSouls : MonoBehaviour {
 				// will depend on the season and the soul effected also the spell casted
 				if (distance < Utilities.defensiveAttackDistance) {
 					if (Utilities.currentSeason == Utilities.winter) {
-						self.GetComponent<LongRangeEnemyScript>().isActive = false;
+						self.GetComponent<CalamitySoulScript>().isActive = false;
 						self.renderer.material.color = Color.blue;
 						//Destroy(self);
 					}
@@ -47,7 +48,7 @@ public class AttackOnLongRangeSouls : MonoBehaviour {
 				distance = Vector3.Distance(target.transform.position, transform.position);
 				if (distance < Utilities.calamityAttackRadius) {
 					if (Utilities.currentSeason == Utilities.winter) {
-						self.GetComponent<LongRangeEnemyScript>().isActive = false;
+						self.GetComponent<CalamitySoulScript>().isActive = false;
 						self.renderer.material.color = Color.blue;
 						//Destroy(self);
 					}

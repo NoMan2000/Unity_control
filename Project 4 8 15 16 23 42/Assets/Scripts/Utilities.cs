@@ -55,10 +55,15 @@ public class Utilities : MonoBehaviour {
 	public static bool defensiveSpell = false;
 	public static bool offensiveSpell = false;
 	public static bool calumitySpell = false;
+	public static float defensiveSpellTime = 3;
+	public static float offensiveSpellTime = 1;
+	public static float calumitySpellTime = 6;
 	public static float defensiveAttackDistance = 5;
+	public static float calamityAttackRadius = 30;
 	
 	// player attributes
-	public static float darkSoulBar = 100;
+	public static float saludBar = 100;
+	public static float magiaBar = 100;
 	
 	// world attributes
 	public static bool isWaterFrozen = false;
