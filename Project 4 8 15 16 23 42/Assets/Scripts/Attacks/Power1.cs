@@ -38,10 +38,26 @@ public class Power1 : MonoBehaviour {
 					Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 					if (Physics.Raycast(ray, out hit, 500.0f)) {
 					//if (Physics.Raycast(transform.position, forward, out hit, 500.0f, 1)) {
-						Utilities.offensiveSpell = true;
+						
 						GameObject newOffensiveEffect;
 						newOffensiveEffect = Instantiate(spell, hit.point,  new Quaternion(0f,0f,0f,0f)) as GameObject;
 						newOffensiveEffect.particleSystem.enableEmission = true;
+						
+						if (hit.collider.CompareTag("terrain")) {
+							if (Utilities.currentSeason == Utilities.winter) {
+								Utilities.offensiveSpell = true;
+								Utilities.attractWinter = true;
+								GameObject.FindGameObjectWithTag("attractWinter").transform.position = hit.point;
+							}
+							if (Utilities.currentSeason == Utilities.spring) {
+							}
+							if (Utilities.currentSeason == Utilities.summer) {
+							}
+							if (Utilities.currentSeason == Utilities.fall) {
+							}
+						}
+						
+						
 						
 						if (hit.collider.CompareTag("shortRangeSoul")) {
 							if (Utilities.currentSeason == Utilities.winter) {

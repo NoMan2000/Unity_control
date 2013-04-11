@@ -18,7 +18,7 @@ public class Utilities : MonoBehaviour {
 	public static int fall = 2;
 	public static int winter = 3;
 	public static int spring = 4;
-	public static int currentSeason;
+	public static int currentSeason = fall;
 	public static int changedSeason;
 	public static bool seasonChanged = false;
 	public static float seasonCounter = 0.0f;
@@ -70,6 +70,14 @@ public class Utilities : MonoBehaviour {
 	public static float freezeTimer = 0.0f;
 	public static float maxFreezeTimer = seasonCounterMax;
 	
+	// attributes for power1 attraction
+	public static bool attractWinter = false;
+	public static bool attractSpring = false;
+	public static bool attractSummer = false;
+	public static bool attractFall = false;
+	
+
+	
 	// Use this for initialization
 	void Start () {
 		state = stateMainGame;
@@ -77,6 +85,61 @@ public class Utilities : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		GameObject.Find("SaludBarValue").GetComponent<TextMesh>().text = saludBar.ToString();
+		GameObject.Find("MagiaBarValue").GetComponent<TextMesh>().text = magiaBar.ToString();
+		
+		// for short range souls
+		GameObject[] array = GameObject.FindGameObjectsWithTag("shortSummer");
+		foreach (GameObject g in array) {
+			g.GetComponent<ShortRangeEnemyScript>().seasonType = Utilities.summer;
+		}
+		array = GameObject.FindGameObjectsWithTag("shortWinter");
+		foreach (GameObject g in array) {
+			g.GetComponent<ShortRangeEnemyScript>().seasonType = Utilities.winter;
+		}
+		array = GameObject.FindGameObjectsWithTag("shortFall");
+		foreach (GameObject g in array) {
+			g.GetComponent<ShortRangeEnemyScript>().seasonType = Utilities.fall;
+		}
+		array = GameObject.FindGameObjectsWithTag("shortSpring");
+		foreach (GameObject g in array) {
+			g.GetComponent<ShortRangeEnemyScript>().seasonType = Utilities.spring;
+		}
+		
+		// for long range souls
+		array = GameObject.FindGameObjectsWithTag("longSummer");
+		foreach (GameObject g in array) {
+			g.GetComponent<LongRangeEnemyScript>().seasonType = Utilities.summer;
+		}
+		array = GameObject.FindGameObjectsWithTag("longWinter");
+		foreach (GameObject g in array) {
+			g.GetComponent<LongRangeEnemyScript>().seasonType = Utilities.winter;
+		}
+		array = GameObject.FindGameObjectsWithTag("longFall");
+		foreach (GameObject g in array) {
+			g.GetComponent<LongRangeEnemyScript>().seasonType = Utilities.fall;
+		}
+		array = GameObject.FindGameObjectsWithTag("longSpring");
+		foreach (GameObject g in array) {
+			g.GetComponent<LongRangeEnemyScript>().seasonType = Utilities.spring;
+		}
+		
+		// for calumity souls
+		array = GameObject.FindGameObjectsWithTag("calumitySummer");
+		foreach (GameObject g in array) {
+			g.GetComponent<CalamitySoulScript>().seasonType = Utilities.summer;
+		}
+		array = GameObject.FindGameObjectsWithTag("calumityWinter");
+		foreach (GameObject g in array) {
+			g.GetComponent<CalamitySoulScript>().seasonType = Utilities.winter;
+		}
+		array = GameObject.FindGameObjectsWithTag("calumityFall");
+		foreach (GameObject g in array) {
+			g.GetComponent<CalamitySoulScript>().seasonType = Utilities.fall;
+		}
+		array = GameObject.FindGameObjectsWithTag("calumitySpring");
+		foreach (GameObject g in array) {
+			g.GetComponent<CalamitySoulScript>().seasonType = Utilities.spring;
+		}
 	}
 }
